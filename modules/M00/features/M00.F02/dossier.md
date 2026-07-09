@@ -81,4 +81,6 @@ Con Git local, Claude Code hace todo el trabajo de versionado. El conector GitHu
 
 ## 4. Conclusiones
 
-*(Pendiente: se completará al cerrar M00.F02.)*
+*(Pendiente el cierre completo de M00.F02 — T04-T06 siguen abiertas. Nota parcial registrada ahora porque ya ocurrió el aprendizaje que la sección 3 anticipaba.)*
+
+**Sobre la separación código/documentación (2026-07-10):** la separación "discutible" planteada en la sección 3 (`repo/` en Git, `documentation/`/`dossiers/`/`modules/` fuera) sí dolió, y no hizo falta esperar a que doliera de verdad para verlo: bastó con pensarlo dos veces. Se reconsideró antes de que existiera proyecto Unity — ventana barata, sin binarios ni GUIDs de Unity que reubicar — y se aplanó `ComplexLab/` a un único repositorio Git, con el código en `code/` (subcarpeta con su propio `.gitignore` anclado) y el resto de carpetas tal cual. Detalle completo en `contract.md` de esta misma feature. Aprendizaje transferible: las decisiones de estructura son mucho más baratas de revertir antes de que el resto del sistema (aquí, Unity) empiece a asumirlas.

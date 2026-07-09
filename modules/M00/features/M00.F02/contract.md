@@ -4,7 +4,7 @@
 |---|---|
 | ID | M00.F02 |
 | Módulo | M00 — Configuración |
-| Estado | Draft |
+| Estado | In-Progress |
 | Issue Jira | [CMX-3](https://fereblanco.atlassian.net/browse/CMX-3) |
 | Rama Git | `main` (excepción documentada, ver sección 3) |
 | Fecha contrato | 2026-07-09 |
@@ -156,7 +156,7 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 |---|---|---|---|
 | T01 Repositorio remoto GitHub | [CMX-13](https://fereblanco.atlassian.net/browse/CMX-13) | Manual | Hecho |
 | T02 Git inicializado y enlazado | [CMX-14](https://fereblanco.atlassian.net/browse/CMX-14) | Code · Haiku | Hecho |
-| T03 Aplanar estructura + `.gitignore` + `.gitattributes`/LFS | [CMX-15](https://fereblanco.atlassian.net/browse/CMX-15) | Code · Sonnet | Pendiente (este contrato) |
+| T03 Aplanar estructura + `.gitignore` + `.gitattributes`/LFS | [CMX-15](https://fereblanco.atlassian.net/browse/CMX-15) | Code · Sonnet | Hecho y verificado en local (commit `02b460d`); push pendiente de credenciales de Fere |
 | T04 Estrategia de ramas | [CMX-16](https://fereblanco.atlassian.net/browse/CMX-16) | Cowork · Sonnet | Pendiente |
 | T05 `code/CLAUDE.md` | [CMX-17](https://fereblanco.atlassian.net/browse/CMX-17) | Code · Sonnet | Pendiente |
 | T06 Conector GitHub (opcional) | [CMX-18](https://fereblanco.atlassian.net/browse/CMX-18) | Manual | Pendiente |
@@ -167,3 +167,5 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 |---|---|---|
 | 2026-07-09 | Creación del contrato, adaptado a formato ligero de módulo de configuración (sin secciones 4/5 pesadas de spec funcional/técnica de software) | M00.F02 estaba en Draft sin contrato; regla del proyecto exige contrato antes de implementar, incluso en tareas de configuración (ver `modules/M00/README.md`, línea 12) |
 | 2026-07-09 | Se amplía el alcance de T03: aplanado de `ComplexLab/` a un único repo Git (elimina `repo/`, introduce `code/`), y se añade categoría "Documentos" (pdf/docx/doc/xlsx/xls/pptx/ppt/epub) al set de LFS | Fere retoma la reconsideración que el propio dossier dejaba abierta sobre separar documentación y código en dos ritmos distintos; se decide unificar antes de que exista proyecto Unity (ventana de migración barata). Los formatos ofimáticos binarios tienen el mismo problema de diffs que los assets Unity, y `dossiers/` los va a producir vía `make-dossier` |
+| 2026-07-10 | Contrato aprobado por Fere; T03 implementado y verificado en local: `.git` movido a la raíz, `code/` creado, `.gitignore`/`.gitattributes` en su sitio, `git-lfs` instalado en el sandbox (no venía preinstalado) y registrado con `git lfs install --local`. CA-00, CA-01, CA-02, CA-03, CA-04, CA-05 verificados en local. Estado pasa a In-Progress. Nota técnica: la carpeta `code/` quedó vacía porque el proyecto Unity aún no existe (M00.F03); su `.gitignore` solo tiene efecto una vez haya contenido dentro | Cierre del ciclo contrato → implementación → verificación de esta iteración de T03. CA-00/CA-03 relativos a GitHub (push, LFS storage remoto) quedan pendientes: el sandbox de ejecución no tiene credenciales de GitHub guardadas — el `push` lo debe ejecutar Fere desde su máquina |
+| 2026-07-10 | Nota técnica añadida al registro: durante esta sesión se detectó un desfase de sincronización entre la vista de archivos de Cowork (Windows) y el montaje del sandbox Linux — ediciones recién guardadas aparecían truncadas al leerlas desde bash. Se resolvió reescribiendo los archivos afectados directamente desde el mismo proceso bash que ejecuta Git, antes de commitear, evitando el cruce de esa frontera | Evitar commitear contenido corrupto/truncado en la historia de Git; documentado como aprendizaje operativo para sesiones futuras con esta combinación de herramientas |
