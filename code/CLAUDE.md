@@ -1,6 +1,6 @@
 # code/ — Convenciones de código
 
-Este archivo lo lee Claude Code automáticamente al trabajar dentro de `code/` (el proyecto Unity). Convenciones de C#/Unity, formato de commits y estructura de `Assets/` se añadirán en M00.F02.T05, cuando exista contenido real que convencionar. Esta primera sección cubre la estrategia de ramas (M00.F02.T04).
+Este archivo lo lee Claude Code automáticamente al trabajar dentro de `code/` (el proyecto Unity). Convenciones de C#/Unity y estructura de `Assets/` se añadirán en M00.F02.T05, cuando exista contenido real que convencionar. Esta primera sección cubre la estrategia de ramas (M00.F02.T04); la segunda, una regla de higiene de commits adelantada de T05.
 
 ## Estrategia de ramas
 
@@ -13,4 +13,8 @@ Este archivo lo lee Claude Code automáticamente al trabajar dentro de `code/` (
 7. **Excepción M00:** mientras dure el módulo de configuración, los commits de tareas de M00 van directos a `main` (sin rama de feature), documentado en `modules/M00/features/M00.F02/contract.md` sección 3. Desde M01 en adelante aplican las reglas 1-6 sin excepción.
 8. **Mensajes de commit:** Conventional Commits con el ámbito de la feature, p. ej. `feat(M01.F01): add cell grid simulation`.
 
-Detalle y porqués de estas reglas, en lenguaje llano: `modules/M00/features/M00.F02/estrategia-de-ramas.md`. Especificación técnica completa: `modules/M00/features/M00.F02/contract.md`, sección 5 (T04).
+## Higiene de commits
+
+9. **No usar "stage all" / `git commit -a` por defecto.** Revisar el diff o la lista de archivos modificados antes de cada commit, y añadir (`git add <archivo>` o marcar el checkbox en VS Code) solo lo que pertenece de verdad al cambio que se está commiteando. Excepción: el primer commit de un proyecto, cuando todo lo que existe es justo lo que se quiere commitear. *(Pendiente para M00.F03: añadir aquí el matiz específico de Unity — el Editor puede marcar escenas/prefabs/sprite atlases como modificados sin cambios intencionados; no se documenta la regla concreta hasta que exista proyecto Unity real sobre el que verificarla.)*
+
+Detalle y porqués de la estrategia de ramas, en lenguaje llano: `modules/M00/features/M00.F02/estrategia-de-ramas.md`. Especificación técnica completa: `modules/M00/features/M00.F02/contract.md`, sección 5 (T04).

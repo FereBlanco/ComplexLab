@@ -156,6 +156,8 @@ Entregable de T04: esta sección (fuente de verdad operativa para Claude, junto 
 - **CA-05:** Commit(s) de migración + `.gitignore`/`.gitattributes` limpios, con mensajes Conventional Commits (p. ej. `chore(M00.F02): flatten repo structure and configure gitignore/lfs`).
 - **CA-06:** `code/CLAUDE.md` existe y contiene la sección de estrategia de ramas con las 8 reglas de arriba.
 - **CA-07:** `modules/M00/features/M00.F02/estrategia-de-ramas.md` existe, en español llano, con las reglas y sus porqués — verificable por lectura (no es un criterio automatizable).
+- **CA-08:** Las dos guías oficiales de Unity sobre control de versiones (2022 y Unity 6 edition) están transcritas en `documentation/references/` y su contenido contrastado contra las decisiones de T04 — sin hallazgos que contradigan lo decidido.
+- **CA-09:** `code/CLAUDE.md` contiene una regla de higiene de commits (no usar "stage all" por defecto) — adelanto de T05, verificable por lectura.
 
 ## 7. Plan de verificación
 
@@ -174,8 +176,8 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 | T01 Repositorio remoto GitHub | [CMX-13](https://fereblanco.atlassian.net/browse/CMX-13) | Manual | Hecho |
 | T02 Git inicializado y enlazado | [CMX-14](https://fereblanco.atlassian.net/browse/CMX-14) | Code · Haiku | Hecho |
 | T03 Aplanar estructura + `.gitignore` + `.gitattributes`/LFS | [CMX-15](https://fereblanco.atlassian.net/browse/CMX-15) | Code · Sonnet | Hecho, verificado y pusheado (`e172d49` en origin/main) |
-| T04 Estrategia de ramas | [CMX-16](https://fereblanco.atlassian.net/browse/CMX-16) | Cowork · Sonnet | En curso |
-| T05 `code/CLAUDE.md` | [CMX-17](https://fereblanco.atlassian.net/browse/CMX-17) | Code · Sonnet | Pendiente |
+| T04 Estrategia de ramas | [CMX-16](https://fereblanco.atlassian.net/browse/CMX-16) | Cowork · Sonnet | Hecho |
+| T05 `code/CLAUDE.md` | [CMX-17](https://fereblanco.atlassian.net/browse/CMX-17) | Code · Sonnet | Iniciado (regla de higiene de commits); falta C#/Unity, estructura de Assets/ y el resto de convenciones |
 | T06 Conector GitHub (opcional) | [CMX-18](https://fereblanco.atlassian.net/browse/CMX-18) | Manual | Pendiente |
 
 ## 10. Registro de cambios del contrato
@@ -189,4 +191,5 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 | 2026-07-10 | Push ejecutado por Fere (`e172d49` en `origin/main`); CA-00 y CA-03 quedan completamente verificados (incluida la parte remota) | Cierra el ciclo de T03: contrato → implementación → verificación local → push → verificación remota |
 | 2026-07-10 | Se corrige el alcance de T04 (aún Pendiente): las ramas ya no se borran automáticamente tras el merge. Actualizado también en el dossier, sección 3 | Fere quiere conservar ramas como material de práctica de Git (rebase, comparación de historiales, recuperación); borrado deliberado más adelante si sobran, no por defecto |
 | 2026-07-10 | T04 desarrollado: merge commit --no-ff, vía Pull Request, rebase de la rama sobre `origin/main` antes de mergear, sin protección de `main` todavía, revisión de PR manual hasta T06. Añadidas CA-06 y CA-07 | Decisiones tomadas con Fere pregunta por pregunta (tipo de merge, PR vs local, rebase previo, protección de main). Se añade CA-07 porque el entregable didáctico (`estrategia-de-ramas.md`) es un criterio de aceptación tan válido como los técnicos, aunque no sea automatizable |
-| 2026-07-10 | Se revierte la regla 2 (rebase obligatorio antes de mergear) por una actualización simple con `main`, sin rebase | Fere preguntó por las ventajas reales del rebase frente al flujo de merge que ya usa en su empresa (y usaba con Plastic SCM). Tras comparar ambos resultados de historial, la ventaja del rebase por defecto resultó marginal para un repo con una sola persona y pocas ramas simultáneas; se prioriza el flujo que Fere ya conoce y es más seguro por defecto (no reescribe commits, no requiere push forzado). Rebase queda documentado en `estrategia-de-ramas.md` como concepto a entender y practicar de forma deliberada, no como política |
+| 2026-07-10 | Se revierte la regla 2 (rebase obligatorio antes de mergear) por una actualización simple con `main`, sin rebase | Fere preguntó por las ventajas reales del rebase frente al flujo de merge que ya usa en su empresa (y usaba con Plastic SCM). Tras comparar ambos flujos se decide adoptar el mismo merge simple sin rebase, dejando rebase documentado como concepto opcional en `estrategia-de-ramas.md` |
+| 2026-07-10 | Se revisan las dos guías oficiales de Unity sobre control de versiones (2022 y Unity 6 edition), transcritas en `documentation/references/`; se añade regla de higiene de commits ("no stage all por defecto") a `code/CLAUDE.md` como adelanto de T05, con la parte específica de Unity pendiente para M00.F03. Se añaden CA-08 y CA-09. T04 pasa a Hecho; T05 pasa de Pendiente a Iniciado | Cierre de T04: no quedaba ningún punto pendiente de las guías por revisar. La regla de higiene de commits se adelanta porque es una práctica general de Git (no depende de que exista proyecto Unity), mientras que su matiz específico de Unity sí depende de verificarlo sobre un proyecto real |

@@ -104,4 +104,4 @@ Vas a manejar Git sobre todo desde el plugin de Git de VS Code, con la terminal 
 - **T05** añadirá a `code/CLAUDE.md` las convenciones de C#/Unity y el resto de reglas de commits — esta estrategia de ramas ya está incorporada allí.
 - **T06** (opcional) autoriza el conector de GitHub en Claude, que es lo que me permitirá revisar tus PRs directamente desde Cowork en vez de que me pegues el diff.
 - La protección de `main` queda como decisión pendiente para cuando cerremos M00.
-- Antes de cerrar T04 del todo: revisar unas guías oficiales de Unity sobre control de versiones que Fere va a compartir, por si aportan algo a esta estrategia.
+- Las dos guías oficiales de Unity sobre control de versiones (2022 y Unity 6 edition) ya se revisaron: no contradicen nada de esta estrategia. Quedan transcritas en `documentation/references/` por si hace falta consultarlas.
