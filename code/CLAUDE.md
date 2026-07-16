@@ -5,7 +5,7 @@ Este archivo lo lee Claude Code automáticamente al trabajar dentro de `code/` (
 ## Estrategia de ramas
 
 1. **Una rama por feature, no por tarea.** `feature/MXX.FYY-short-name`, creada desde `main` actualizado. Todas las tareas `MXX.FYY.TZZ` de esa feature commitean sobre la misma rama.
-2. **Rebase antes de mergear.** Antes de abrir/actualizar el PR: `git fetch origin` + `git rebase origin/main` sobre la rama de feature, resolviendo conflictos en local.
+2. **Actualizar con `main` antes de mergear, sin rebase.** Traer los cambios de `main` a la rama de feature (`git merge main`, o resolver conflictos que señale el PR) antes de abrir/cerrar el PR.
 3. **Merge siempre vía Pull Request en GitHub**, nunca push directo de una rama de feature a `main`. El PR se abre cuando la feature alcanza la fase Testing de su contrato.
 4. **Tipo de merge: "Create a merge commit"** (equivalente a `git merge --no-ff`) — nunca squash ni rebase-merge.
 5. **Las ramas no se borran tras el merge.** Quedan como material de consulta y práctica de Git; se borran deliberadamente si sobran, no por defecto.
