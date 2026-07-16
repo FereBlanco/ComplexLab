@@ -50,4 +50,10 @@ Full detail in `documentation/PROJECT.md`, section 5.
 ## Conventions
 
 - **Languages:** documentation, contracts, and dossiers in Spanish; code, branches, and commits in English.
-- **Naming:** modules `MXX`, features `MXX.FYY`, tasks `MXX.FYY.TZZ`, branches `feature/
+- **Naming:** modules `MXX`, features `MXX.FYY`, tasks `MXX.FYY.TZZ`, branches `feature/MXX.FYY-short-name`, Conventional Commits.
+- **Code:** lives only in `code/` (Unity project).
+- **Jira:** project `CMX` at fereblanco.atlassian.net; bidirectional traceability between tickets and documents (see section 8 of `PROJECT.md`).
+
+## Status
+
+Setup in progress (module M00): project structure, connectors, and working standards with Claude.

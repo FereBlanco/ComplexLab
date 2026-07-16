@@ -73,4 +73,8 @@ Ganamos trazabilidad (cada commit citará su ticket), hábito profesional (el mi
 
 ## 4. Conclusiones
 
-Al volcar las tareas a Jira surgió una lección sobre la pr
+Al volcar las tareas a Jira surgió una lección sobre la propia nomenclatura. Las subtareas se habían cargado con identificadores abreviados (`F01.4`), que heredaban de forma implícita el módulo y la feature del contexto. Al revisarlo se vio que esa forma rompe el patrón de herencia de prefijos del resto del proyecto (`MXX` → `MXX.FYY`) y, sobre todo, deja de ser autónoma: `F01.4` no dice a qué módulo pertenece cuando se lee fuera de su carpeta —en un commit, en el tablero o en una conversación—. Se formalizó el nivel de tarea como `MXX.FYY.TZZ` (p. ej. `M00.F01.T04`), con letra de tipo y dos dígitos, y se propagó el cambio a `PROJECT.md`, `CLAUDE.md`, los dossiers y las 28 subtareas ya creadas en Jira.
+
+La lección de fondo no es sobre Jira sino sobre SDD: una convención de nombres conviene fijarla por escrito *antes* de crear los primeros identificadores, porque corregirla después obliga a tocar todos los sitios donde ya se usó. Aquí el coste fue bajo (tickets recién creados), pero habría crecido con el proyecto.
+
+Un segundo apunte de método: M00.F01 se cerró sin `contract.md`. No era una tarea de desarrollo de software sino de configuración, y en ese caso el contrato no aporta. Queda como criterio para el resto del proyecto decidir caso por caso qué tareas exigen contrato aprobado y cuáles se resuelven de otra forma; esta feature es el primer ejemplo documentado de la segunda categoría.

@@ -110,4 +110,10 @@ Tabla de tareas (ej. `modules/M00/ROADMAP.md`, cada feature): columna "Jira" con
 Cabecera (ej. `modules/M00/features/M00.F01/dossier.md`, línea 5): enlace al ticket historia.
 
 ```
-| Feature | M00.F01 — Conexión y estru
+| Feature | M00.F01 — Conexión y estructura de Jira ([CMX-2](https://fereblanco.atlassian.net/browse/CMX-2)) |
+```
+
+### En el contrato de la feature (futuro)
+Cabecera o sección de metadatos: clave historia + lista de subtareas asociadas.
+
+**Beneficio:** cualquiera lee una línea de documentación y accede directamente al ticket correspondiente. Inversamente, desde Jira el usuario ve la descripción en contexto. Un cambio en el contrato se refleja en Jira (actualizar descripción); un commit referencia el ticket en su mensaje (ej. `feat(CMX-2): …`).

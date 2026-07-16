@@ -61,7 +61,9 @@ main ──●───────●──────────●───
          ●──●  feature/M01.F01-game-of-life
 ```
 
-Reglas: `main` siempre compila y pasa los tests; cada feature vive en `feature/MXX.FYY-short-name`; el merge a main solo ocurre cuando la feature alcanza la fase Testing de su contrato; la rama se borra tras el merge. Sin ramas permanentes de develop/release (GitFlow): esa maquinaria existe para coordinar equipos con versiones simultáneas, y aquí sería puro peso muerto. La razón de tener ramas siquiera — pudiendo committear a main directamente — es doble: ensayar el flujo profesional (objetivo de aprendizaje explícito) y que main sea siempre un refugio estable al que volver si un experimento sale mal.
+Reglas: `main` siempre compila y pasa los tests; cada feature vive en `feature/MXX.FYY-short-name`; el merge a main solo ocurre cuando la feature alcanza la fase Testing de su contrato. Sin ramas permanentes de develop/release (GitFlow): esa maquinaria existe para coordinar equipos con versiones simultáneas, y aquí sería puro peso muerto. La razón de tener ramas siquiera — pudiendo committear a main directamente — es doble: ensayar el flujo profesional (objetivo de aprendizaje explícito) y que main sea siempre un refugio estable al que volver si un experimento sale mal.
+
+**Corrección (2026-07-10):** las ramas *no* se borran automáticamente al mergear. Decisión de Fere: quiere conservarlas como material de práctica de Git (rebase, comparación de historiales, recuperación de una rama vieja, etc.) — el propio objetivo de aprender el flujo profesional pesa más aquí que la limpieza del repositorio. Si con el tiempo alguna rama sobra, se borra deliberadamente, no por defecto. Esto revierte lo que decía originalmente esta sección ("la rama se borra tras el merge"); queda como ejemplo de que un contrato/dossier se corrige cuando la práctica lo desmiente, no se parchea en silencio.
 
 ### El nombre de la rama lleva el ID de la feature
 

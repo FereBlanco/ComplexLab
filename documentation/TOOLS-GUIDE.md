@@ -34,4 +34,4 @@ Heurística: empieza con Sonnet; sube a Opus/Fable si la tarea exige diseño o r
 
 - **Skills:** instrucciones reutilizables que Claude carga cuando tocan (ya usas `make-dossier`). Crearemos skills propias cuando detectemos tareas repetitivas (p. ej. "crear contrato de feature").
 - **Agentes (subagentes):** instancias de Claude lanzadas para subtareas largas o paralelas (p. ej. verificar un contrato mientras se redacta otro). Se practicarán a partir de M01.
-- **Conectores (MCP):** enla
+- **Conectores (MCP):** enlaces con apps externas. Jira/Atlassian requiere autorizarlo una vez en la configuración de conectores.

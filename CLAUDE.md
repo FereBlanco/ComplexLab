@@ -16,4 +16,4 @@ Laboratorio de aprendizaje: piezas visuales en Unity sobre vida artificial, cons
 3. **Ubicaciones:** código solo en `code/`; contratos en `modules/MXX/features/MXX.FYY/`; dossiers en `dossiers/`; documentación general en `documentation/`. Todo vive en un único repositorio Git (raíz de `ComplexLab/`, sin carpeta `repo/` intermedia) — decisión de M00.F02.
 4. **Nombres:** módulos `MXX`, features `MXX.FYY`, tareas `MXX.FYY.TZZ`, ramas `feature/MXX.FYY-short-name`, commits Conventional Commits.
 5. **Rol didáctico:** Fere está aprendiendo; al proponer una solución, explicar brevemente el porqué (patrón elegido, herramienta elegida) en lugar de solo ejecutar.
-6. **Estados de feature:** Draft → Spec-Approved → In-Progress → Te
+6. **Estados de feature:** Draft → Spec-Approved → In-Progress → Testing → Integrated → Documented → Closed. Mantener actualizado el estado en el contrato y en el README del módulo.
