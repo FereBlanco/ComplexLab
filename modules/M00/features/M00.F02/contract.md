@@ -131,6 +131,21 @@ No se trackean vía LFS: `.md` (toda la documentación, contratos y dossiers-fue
 
 Este archivo vive en la raíz (no dentro de `code/`) porque cubre binarios tanto de `code/` (assets Unity) como de `dossiers/` (documentos ofimáticos) — Git LFS no necesita que `.gitattributes` esté cerca de los archivos que gobierna, solo que esté en algún ancestro del path.
 
+### T04 — Estrategia de ramas (decisiones 2026-07-10)
+
+Reglas fijadas, a partir de M01 (M00 sigue con la excepción de la sección 3):
+
+1. **Una rama por feature, no por tarea.** `feature/MXX.FYY-short-name`, creada desde `main` actualizado. Todas las tareas `MXX.FYY.TZZ` de esa feature commitean sobre la misma rama.
+2. **Rebase antes de mergear.** Antes de abrir/actualizar el PR: `git fetch origin` + `git rebase origin/main` sobre la rama de feature, resolviendo conflictos en local. Mantiene `main` sin commits de sincronización y es práctica deliberada de rebase (objetivo de aprendizaje de Fere).
+3. **Merge siempre vía Pull Request en GitHub**, nunca push directo de una rama de feature a `main`. El PR se abre cuando la feature alcanza la fase Testing de su contrato (criterio de cierre ya definido en el ciclo SDD, `PROJECT.md` sección 5).
+4. **Tipo de merge: "Create a merge commit"** (equivalente a `git merge --no-ff`) en el botón de GitHub — nunca squash ni rebase-merge. Conserva la historia completa de la rama dentro de `main` y deja un commit de merge visible.
+5. **Las ramas no se borran tras el merge** (ya decidido y documentado en el dossier, sección 3) — quedan como material de consulta y práctica de Git.
+6. **`main` sin protección todavía.** Se reconsidera al cerrar M00 y empezar M01 — hasta entonces sigue permitiendo push directo para tareas de configuración (excepción de la sección 3 de este contrato).
+7. **Revisión de PR:** hasta que M00.F02.T06 (conector GitHub) esté hecho, la revisión es manual — Fere se revisa el propio diff, o pide a Claude Chat/Cowork que lo revise pegando el diff o leyendo el archivo. La apertura del PR en sí (web o VS Code) no depende del conector — es una función de GitHub, no de Claude.
+8. **Herramientas:** Fere gestiona Git desde el plugin de Git de VS Code y, en ocasiones, la CLI. Las reglas de arriba son agnósticas de herramienta; el rebase interactivo con conflictos suele ser más cómodo en CLI, el resto funciona bien desde VS Code.
+
+Entregable de T04: esta sección (fuente de verdad operativa para Claude, junto con `code/CLAUDE.md`) más un documento de aprendizaje aparte para Fere — `modules/M00/features/M00.F02/estrategia-de-ramas.md` — con las mismas reglas en lenguaje llano y sus porqués. No es un contrato ni está pensado para que lo lea Claude Code.
+
 ## 6. Criterios de aceptación
 
 - **CA-00:** `ComplexLab/.git` existe y `git remote -v` sigue apuntando a `complexlab` en GitHub; `repo/` ya no existe; `git log` conserva los 2 commits originales.
@@ -139,6 +154,8 @@ Este archivo vive en la raíz (no dentro de `code/`) porque cubre binarios tanto
 - **CA-03:** Un archivo binario de prueba (p. ej. un `.png` y un `.docx` cualquiera) commiteado se registra como puntero LFS, verificable con `git lfs status` mostrando el archivo en "Git LFS objects to be committed" y `git show <commit>:<archivo> | head -c 200` mostrando la cabecera `version https://git-lfs...` en vez de bytes binarios.
 - **CA-04:** `documentation/`, `dossiers/`, `modules/` (incluido este mismo `contract.md`) aparecen en `git log` tras el commit de migración.
 - **CA-05:** Commit(s) de migración + `.gitignore`/`.gitattributes` limpios, con mensajes Conventional Commits (p. ej. `chore(M00.F02): flatten repo structure and configure gitignore/lfs`).
+- **CA-06:** `code/CLAUDE.md` existe y contiene la sección de estrategia de ramas con las 8 reglas de arriba.
+- **CA-07:** `modules/M00/features/M00.F02/estrategia-de-ramas.md` existe, en español llano, con las reglas y sus porqués — verificable por lectura (no es un criterio automatizable).
 
 ## 7. Plan de verificación
 
@@ -157,7 +174,7 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 | T01 Repositorio remoto GitHub | [CMX-13](https://fereblanco.atlassian.net/browse/CMX-13) | Manual | Hecho |
 | T02 Git inicializado y enlazado | [CMX-14](https://fereblanco.atlassian.net/browse/CMX-14) | Code · Haiku | Hecho |
 | T03 Aplanar estructura + `.gitignore` + `.gitattributes`/LFS | [CMX-15](https://fereblanco.atlassian.net/browse/CMX-15) | Code · Sonnet | Hecho, verificado y pusheado (`e172d49` en origin/main) |
-| T04 Estrategia de ramas | [CMX-16](https://fereblanco.atlassian.net/browse/CMX-16) | Cowork · Sonnet | Pendiente |
+| T04 Estrategia de ramas | [CMX-16](https://fereblanco.atlassian.net/browse/CMX-16) | Cowork · Sonnet | En curso |
 | T05 `code/CLAUDE.md` | [CMX-17](https://fereblanco.atlassian.net/browse/CMX-17) | Code · Sonnet | Pendiente |
 | T06 Conector GitHub (opcional) | [CMX-18](https://fereblanco.atlassian.net/browse/CMX-18) | Manual | Pendiente |
 
@@ -171,3 +188,4 @@ M00.F01 (Closed — conector Jira operativo). T01/T02 de esta misma feature (ya 
 | 2026-07-10 | Nota técnica añadida al registro: durante esta sesión se detectó un desfase de sincronización entre la vista de archivos de Cowork (Windows) y el montaje del sandbox Linux — ediciones recién guardadas aparecían truncadas al leerlas desde bash. Se resolvió reescribiendo los archivos afectados directamente desde el mismo proceso bash que ejecuta Git, antes de commitear, evitando el cruce de esa frontera | Evitar commitear contenido corrupto/truncado en la historia de Git; documentado como aprendizaje operativo para sesiones futuras con esta combinación de herramientas |
 | 2026-07-10 | Push ejecutado por Fere (`e172d49` en `origin/main`); CA-00 y CA-03 quedan completamente verificados (incluida la parte remota) | Cierra el ciclo de T03: contrato → implementación → verificación local → push → verificación remota |
 | 2026-07-10 | Se corrige el alcance de T04 (aún Pendiente): las ramas ya no se borran automáticamente tras el merge. Actualizado también en el dossier, sección 3 | Fere quiere conservar ramas como material de práctica de Git (rebase, comparación de historiales, recuperación); borrado deliberado más adelante si sobran, no por defecto |
+| 2026-07-10 | T04 desarrollado: merge commit --no-ff, vía Pull Request, rebase de la rama sobre `origin/main` antes de mergear, sin protección de `main` todavía, revisión de PR manual hasta T06. Añadidas CA-06 y CA-07 | Decisiones tomadas con Fere pregunta por pregunta (tipo de merge, PR vs local, rebase previo, protección de main). Se añade CA-07 porque el entregable didáctico (`estrategia-de-ramas.md`) es un criterio de aceptación tan válido como los técnicos, aunque no sea automatizable |
