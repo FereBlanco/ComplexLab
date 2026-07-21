@@ -4,7 +4,7 @@
 |---|---|
 | ID | M00.F03 |
 | Módulo | M00 — Configuración |
-| Estado | Draft |
+| Estado | Spec-Approved |
 | Issue Jira | [CMX-4](https://fereblanco.atlassian.net/browse/CMX-4) |
 | Rama Git | `main` (excepción de M00, ver `modules/M00/features/M00.F02/contract.md` sección 3) |
 | Fecha contrato | 2026-07-21 |
@@ -121,3 +121,4 @@ M00.F02 (In-Progress — bloqueante para T02: `code/.gitignore` y `.gitattribute
 | Fecha | Cambio | Motivo |
 |---|---|---|
 | 2026-07-21 | Creación del contrato. Feature pasa de Draft a In-Progress (decisión de Fere, previa a este contrato) según su mensaje inicial; se decide plantilla Universal 3D (URP), ubicación directa en `code/`, aplicar Force Text + Visible Meta Files desde la creación, plataforma inicial Windows sin módulo WebGL todavía | T01 ya estaba hecho de forma manual (instalación de herramientas, no implementación); T02 sí es implementación y exige contrato aprobado antes de crear el proyecto, según regla 1 de `CLAUDE.md` raíz. Fere señaló interés futuro en exportar a WebGL, que se anota como dependencia diferida en vez de instalarse sin necesidad inmediata |
+| 2026-07-21 | Contrato aprobado por Fere. Estado pasa de Draft a Spec-Approved. Fere ya puede crear el proyecto Unity (T02) siguiendo la sección 5 | Fere aclara que los contratos de instalación/configuración (como este) no necesitan quedar cerrados al 100% sin ambigüedad antes de aprobar — a diferencia de los contratos que dan lugar a código, donde sí exige cero ambigüedad antes de implementar. Ajustes o correcciones posteriores a este contrato se harán sobre la marcha, sin bloquear el arranque de T02 |
