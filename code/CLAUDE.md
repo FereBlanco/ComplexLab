@@ -50,6 +50,10 @@ Decididas en M00.F02.T05 a partir de la guía oficial de Unity *Writing Cleaner 
 25. **Nada de comentarios de diario o atribución** (`// added by Fere`) — para eso está el historial de Git, coherente con la regla de higiene de commits ya existente (regla 9).
 26. **Borrar el código comentado**, no dejarlo — está en el historial si hace falta recuperarlo.
 
-*(Pendiente para M00.F03: verificar estas reglas contra un script real de Unity y ajustar lo que no encaje en la práctica. Testing/TDD queda fuera de T05, ver M00.F04.)*
+### Tests
+
+27. **Nombres de métodos de test:** patrón `UnidadBajoPrueba_Escenario_ResultadoEsperado`, Pascal case en cada segmento, separados por guion bajo (p. ej. `ArithmeticSum_ReturnsExpectedResult`). Excepción explícita a la regla 14 (los métodos de producción empiezan por verbo) — en un test el nombre describe el caso, no una acción.
+
+*(Pendiente para M00.F03: verificar estas reglas contra un script real de Unity y ajustar lo que no encaje en la práctica. Convención de nombres de test decidida en M00.F03.T04; el resto de Testing/TDD sigue fuera de alcance, ver M00.F04.)*
 
 Detalle y porqués de la estrategia de ramas, en lenguaje llano: `modules/M00/features/M00.F02/estrategia-de-ramas.md`. Especificación técnica completa: `modules/M00/features/M00.F02/contract.md`, sección 5 (T04).
