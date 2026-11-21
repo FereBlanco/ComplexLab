@@ -4,7 +4,7 @@
 |---|---|
 | ID | M00.F03 |
 | Módulo | M00 — Configuración |
-| Estado | In-Progress |
+| Estado | Closed |
 | Issue Jira | [CMX-4](https://fereblanco.atlassian.net/browse/CMX-4) |
 | Rama Git | `main` (excepción de M00, ver `modules/M00/features/M00.F02/contract.md` sección 3) |
 | Fecha contrato | 2026-07-21 |
@@ -129,3 +129,4 @@ M00.F02 (In-Progress — bloqueante para T02: `code/.gitignore` y `.gitattribute
 | 2026-11-21 | T05 hecho: Claude Code (2.1.330, nativo) instalado y con sesión iniciada con la suscripción de claude.ai; desde una sesión en `code/` con Sonnet creó un `MonoBehaviour` trivial que loguea en `Start()`, compiló sin errores en el Editor y Fere vio el mensaje en Play. Claude Code lo borró junto con su `.meta` sin que se le indicara; `git status` limpio tras la prueba. CA-06 y ED-06 verificados | Antes de la prueba `claude` no estaba accesible en la terminal y faltaba iniciar sesión (`claude auth login`); se resuelve sin incidencias. Que Claude Code elimine el `.meta` por iniciativa propia confirma que aplica la regla asset+`.meta` de Unity, pero conviene seguir verificándolo en cada borrado |
 | 2026-11-21 | T06 hecho: se añade la sección 4 «Flujo Cowork ↔ Code ↔ Unity» a `documentation/TOOLS-GUIDE.md` (reparto de responsabilidades por herramienta y carpeta, ciclo de una feature en 6 pasos, reglas de Unity sobre `.meta`/Force Text/ficheros ignorados, modelo recomendado por paso y el ensayo de T05 como evidencia). CA-07 y ED-07 verificados por lectura | Solo se documentó lo ya verificado en el proyecto (T04, T05, convenciones de `code/CLAUDE.md`); no se describen flujos que aún no se hayan probado, como PRs desde Code o el conector GitHub dentro de Cowork |
 | 2026-11-21 | CA-03 y CA-04 verificados. CA-03: Fere crea desde el Editor `Prefabs/`, `Materials/` y `ScriptableObjects/` (ya existían `Scenes/` y `Scripts/`); se añade `.gitkeep` a las cuatro carpetas vacías para que Git las versione. CA-04: Fere confirma que el doble clic en un script abre VS Code. ED-03 y ED-04 cumplidos | Hasta ahora solo `Scripts.meta` estaba versionado, sin carpeta: un clon del repo habría dado un `.meta` huérfano. Unity ignora los archivos que empiezan por punto, así que `.gitkeep` no necesita `.meta` |
+| 2026-11-21 | CA-01 verificado (Fere: el proyecto compila y la consola no muestra errores). Con CA-01 a CA-08 cumplidos y las seis tareas hechas, la feature pasa de In-Progress a Closed | Cierre de M00.F03. Queda fuera del contrato, y abierto en M00.F02.T05 (CMX-17), el matiz de higiene de commits específico de Unity en `code/CLAUDE.md`, ahora ya verificable con un proyecto real |

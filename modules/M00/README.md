@@ -23,7 +23,7 @@ Dejar el proyecto completamente operativo: conexiones (Jira, Git, Unity, Blender
 |---|---|---|
 | M00.F01 | Conexión y estructura de Jira · [CMX-2](https://fereblanco.atlassian.net/browse/CMX-2) | Closed |
 | M00.F02 | Git y GitHub: repositorio, ramas, conector · [CMX-3](https://fereblanco.atlassian.net/browse/CMX-3) | In-Progress |
-| M00.F03 | Unity + VS Code + Claude Code · [CMX-4](https://fereblanco.atlassian.net/browse/CMX-4) | In-Progress |
+| M00.F03 | Unity + VS Code + Claude Code · [CMX-4](https://fereblanco.atlassian.net/browse/CMX-4) | Closed |
 | M00.F04 | Estándares técnicos y catálogo de patrones · [CMX-5](https://fereblanco.atlassian.net/browse/CMX-5) | Draft |
 | M00.F05 | Ecosistema Claude: skills, agentes, memoria · [CMX-6](https://fereblanco.atlassian.net/browse/CMX-6) | Draft |
 | M00.F06 | Estilo de publicaciones (blog/LinkedIn) · [CMX-7](https://fereblanco.atlassian.net/browse/CMX-7) | Draft |
